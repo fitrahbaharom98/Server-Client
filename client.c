@@ -5,7 +5,7 @@
 #include <string.h> 
 #include <unistd.h> 
 #include <arpa/inet.h>
-#define PORT 5678
+#define PORT 6789
    
 int main(int argc, char const *argv[]) 
 { 
@@ -26,19 +26,19 @@ int main(int argc, char const *argv[])
     serv_addr.sin_port = htons(PORT); 
        
     // Convert IPv4 and IPv6 addresses from text to binary form 
-    if(inet_pton(AF_INET, "192.168.211.132", &serv_addr.sin_addr)<=0)  
+    if(inet_pton(AF_INET, "192.168.62.255", &serv_addr.sin_addr)<=0)  
     { 
-        printf("\nWuxiao dizhi/ Address not supported \n"); 
+        printf("Address not supported \n"); 
         return -1; 
     } 
    
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) 
     { 
-        printf("\nLianjie shibai\n"); 
+        printf("\nNot Connected\n"); 
         return -1; 
     } 
     send(sock , hello , strlen(hello) , 0 ); 
-    printf("Ni hao xiaoxi fasong\n"); 
+    printf("Hellon"); 
     valread = read( sock , buffer, 1024); 
     printf("%s\n",buffer ); 
     return 0; 

@@ -17,7 +17,7 @@ public class Server
             server = new ServerSocket(port); 
             System.out.println("Server begin"); 
   
-            System.out.println("Whats Up"); 
+            System.out.println("Waiting For Client...."); 
   
             socket = server.accept(); 
             System.out.println("Connected"); 

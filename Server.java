@@ -5,7 +5,7 @@ class Server
 {
 public static void main(String[] args)throws Exception
 {
-ServerSocket serversocket = new ServerSocket(8080);
+ServerSocket serversocket = new ServerSocket(6789);
 System.out.println("Welcome! Server is ready!");
 Socket sock = serversocket.accept();
 System.out.println("Waalaikummussalam");

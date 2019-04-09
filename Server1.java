@@ -6,7 +6,7 @@ public class Server1 extends Thread
    private ServerSocket serverSocket;
    String clientmsg = "";
 
-   public SimpleServer(int port) throws IOException
+   public Server1(int port) throws IOException
    {
       serverSocket = new ServerSocket(port);
       serverSocket.setSoTimeout(10000);

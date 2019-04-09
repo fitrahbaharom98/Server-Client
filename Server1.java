@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
 
-public class SimpleServer extends Thread
+public class Server1 extends Thread
 {
    private ServerSocket serverSocket;
    String clientmsg = "";
@@ -21,7 +21,7 @@ public class SimpleServer extends Thread
                 System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
                 Socket server = serverSocket.accept();
                 System.out.println("Just connected to " + server.getRemoteSocketAddress());
-                BufferedREader in = new BufferedREader( new InputStreamReader(socket.getInputStream()));
+                BufferedReader in = new BufferedReader( new InputStreamReader(socket.getInputStream()));
                 System.out.println(in.readline());
                 PrintWriter out = new PrintWriter(server.getOutputStream());
                 out.println("Thank you for connecting to "

@@ -8,7 +8,7 @@ class Server2{
     {
       try{      
       //Defining/opening connection
-      ServerSocket srvr = new ServerSocket(5132);
+      ServerSocket srvr = new ServerSocket(6789);
       Socket skt = srvr.accept();
       
       InputStreamReader bf = new InputStreamReader(skt.getInputStream());

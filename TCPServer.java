@@ -17,7 +17,7 @@ public static void main(String argv[]) throws IOException {
  
   Scanner n = new Scanner(System.in);
 
-  System.out.print("Do you want to ping or send message ? ( 1 - Ping , 2 - Message) \n");
+  System.out.print("Do you want to ping or send message ? (1-Ping,2-Message) \n");
 
     int input = n.nextInt();
      
@@ -50,11 +50,9 @@ InputStreamReader(System.in));
 
   
   Socket serverSocket = new Socket("192.168.62.136", 22000);
-  DataOutputStream outToServer = new 
-DataOutputStream(serevrSocket.getOutputStream());
+  DataOutputStream outToServer = new DataOutputStream(serverSocket.getOutputStream());
 
-  BufferedReader inFromClient = new BufferedReader(new 
-InputStreamReader(serverSocket.getInputStream()));
+  BufferedReader inFromClient = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
 
 
      sentence = inFromUser.readLine();

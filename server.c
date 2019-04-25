@@ -17,11 +17,11 @@ int main( int argc, char *argv[] )
 {
 	// Variables 
 	int sock ;
-	struct sockaddr_in server;
+	struct sockaddr_in client;
 	int mysock;
 	char buff [1024];
 	int rval;
-	char server_message[256] ;
+	char client_message[256] ;
 
 	// Create Socket
 	sock = socket(AF_INET, SOCK_STREAM , 0);
@@ -31,12 +31,12 @@ int main( int argc, char *argv[] )
 	}
 
 
-	server.sin_family = AF_INET;
-	server.sin_addr.s_addr = INADDR_ANY;
-	server.sin_port =htons(22000);
+	client.sin_family = AF_INET;
+	client.sin_addr.s_addr = INADDR_ANY;
+	client.sin_port =htons(22000);
 
 	// Call Bind 
-	if(bind(sock, (struct sockaddr *)&server, sizeof(server)))
+	if(bind(sock, (struct sockaddr *)&client, sizeof(client)))
 	{
 		perror("Bind Failed");
 		exit(1);
@@ -71,16 +71,16 @@ int main( int argc, char *argv[] )
   		{
 
         	 recv(mysock, buff, sizeof(buff), 1);
-		 printf("From Client: %s", buff);
+		 printf("From Server: %s", buff);
 		 recv(mysock, buff, sizeof(buff), 0);
 		 printf("%s",buff);
 		 printf("\n");
 		 
 		//goto Previous; 
 		
-		scanf ("%[^\n]%*c", server_message);
+		scanf ("%[^\n]%*c", client_message);
 			 
-                send(mysock,server_message,strlen(server_message),0);
+                send(mysock,client_message,strlen(client_message),0);
 		}
 		
 		close(mysock);
